@@ -82,7 +82,8 @@ h2.sec::before{content:"";width:8px;height:22px;background:var(--shu);border-rad
 .hero .lead{background:linear-gradient(135deg,var(--ai-d),var(--ai) 60%,#2b6396);color:#fff;border-radius:16px;padding:26px}
 .hero .lead h2{margin:0 0 8px;font-size:26px;line-height:1.35}
 .hero .lead p{margin:6px 0;color:#e7eef7}
-.hero .lead .big{font-size:40px;font-weight:800;color:#ffd9a0}
+.hero .lead .big{font-size:clamp(22px,4.4vw,40px);font-weight:800;color:#ffd9a0;line-height:1.45;
+  word-break:keep-all;overflow-wrap:anywhere;text-wrap:balance}
 .statgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center}
 .stat b{display:block;font-size:26px;color:var(--shu)}
@@ -226,14 +227,25 @@ details.listenbox[open] summary{margin-bottom:8px}
 .abmore{display:contents}
 @media (max-width:820px){
   .abgroup input[type=range]{width:84px}
-  .audiobar .abin{padding:7px 12px;gap:7px}
-  .abgroup{padding:5px 9px}
+  .audiobar .abin{padding:6px 12px;gap:6px}
+  .abgroup{padding:4px 9px}
   .abtoggle{display:inline-flex;align-items:center;gap:5px}
   .audiobar.collapsed .abmore{display:none}
   .audiobar.collapsed .abhint{display:none}
-  .audiobar.collapsed .nowplay{flex:1 1 120px}
+  .audiobar.collapsed .nowplay{flex:1 1 100%;order:9;padding:5px 11px;font-size:12.5px}
   .abgroup>label{font-size:12px}
   .abgroup .val{min-width:40px;font-size:12px}
+  /* 首屏瘦身：品牌與搜尋同列、開關縮小 */
+  .topin{padding:8px 12px;gap:8px}
+  .brand .mark{width:34px;height:34px;flex-basis:34px;font-size:19px}
+  .brand h1{font-size:14.5px}
+  .brand small{display:none}
+  .searchbox{flex:1 1 100%;order:5}
+  .searchbox input{padding:8px 12px 8px 32px;font-size:16px}
+  .tools{margin-left:auto}
+  .tbtn{padding:6px 10px;font-size:12.5px}
+  nav.tabs{padding:0 12px 6px}
+  nav.tabs button{padding:6px 11px;font-size:13.5px}
 }
 /* SECTION: search */
 .sresult{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px;cursor:pointer}
@@ -248,12 +260,22 @@ footer{max-width:1180px;margin:0 auto;padding:0 16px 40px;color:var(--ink2);font
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .backtop{position:fixed;right:18px;bottom:22px;width:46px;height:46px;border-radius:50%;border:none;background:var(--shu);color:#fff;font-size:19px;box-shadow:var(--shadow);z-index:40}
 @media (max-width:820px){
-  .hero{grid-template-columns:1fr}
+  .hero{grid-template-columns:1fr;gap:12px}
+  .hero .lead{padding:18px}
+  .hero .lead h2{font-size:21px}
+  .hero .lead p{font-size:14px;margin:5px 0}
+  .statgrid{grid-template-columns:repeat(4,1fr);gap:8px}
+  .stat{padding:10px 6px}
+  .stat b{font-size:19px}
+  .stat span{font-size:11px;line-height:1.35;display:block}
   .brand h1{font-size:15px}
   main{padding:14px 12px 80px}
   .card{padding:15px}
   .lhead .num{width:48px;height:48px;flex-basis:48px;font-size:20px}
   .lhead h2{font-size:19px}
+  .lgrid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px}
+  .lcard{padding:11px;min-height:104px}
+  .lcard .tt{font-size:14px}
 }
 @media print{
   header.top,nav.tabs,.tools,.subtabs,.spk,.btn,.backtop,.toast{display:none!important}
